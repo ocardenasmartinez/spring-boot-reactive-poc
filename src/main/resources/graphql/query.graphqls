@@ -1,0 +1,20 @@
+type Query {
+    getCharacterById(id: Int): CharacterDTO
+}
+
+type CharacterDTO {
+    id: Int
+    name: String
+    status: String
+    species: String
+    type: String
+    episodeCount: Int
+    origin: OriginDTO
+}
+
+type OriginDTO {
+    name: String
+    url: String
+    dimension: String
+    residents: [String]
+}
