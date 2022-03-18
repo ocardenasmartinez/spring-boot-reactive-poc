@@ -1,7 +1,7 @@
 package cl.service.poc.core.service;
 
 import cl.service.poc.core.RickAndMortyUseCase;
-import cl.service.poc.infra.secundary.dao.RickAndMortyDAO;
+import cl.service.poc.core.port.secundary.RickAndMortyPort;
 import cl.service.poc.core.domain.Character;
 import cl.service.poc.core.domain.Origin;
 import cl.service.poc.core.domain.SaveCharacter;
@@ -15,7 +15,7 @@ import static java.util.Optional.ofNullable;
 @RequiredArgsConstructor
 public class RickAndMorty implements RickAndMortyUseCase {
 
-    private final RickAndMortyDAO rickAndMortyDAO;
+    private final RickAndMortyPort rickAndMortyDAO;
 
     @Override
     public Mono<Character> getCharacterById(Integer id) {

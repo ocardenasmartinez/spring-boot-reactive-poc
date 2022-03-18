@@ -1,4 +1,4 @@
-package cl.service.poc.properties;
+package cl.service.poc.infra.configuration;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;

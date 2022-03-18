@@ -1,6 +1,5 @@
-package cl.service.poc.configuration;
+package cl.service.poc.infra.configuration;
 
-import cl.service.poc.properties.PropertiesConfig;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 

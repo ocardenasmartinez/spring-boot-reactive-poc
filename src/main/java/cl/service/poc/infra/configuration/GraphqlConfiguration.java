@@ -1,4 +1,4 @@
-package cl.service.poc.configuration;
+package cl.service.poc.infra.configuration;
 
 import graphql.kickstart.tools.SchemaParserOptions;
 import org.springframework.context.annotation.Bean;

@@ -1,10 +1,12 @@
-package cl.service.poc.infra.secundary.dao;
+package cl.service.poc.infra.secundary;
 
-import cl.service.poc.infra.secundary.dao.collections.CharacterCollection;
+import cl.service.poc.core.port.secundary.RickAndMortyPort;
+import cl.service.poc.infra.secundary.collections.CharacterCollection;
 import cl.service.poc.core.domain.RickAndMorty;
 import cl.service.poc.core.domain.RickAndMortyLocation;
 import cl.service.poc.core.domain.SaveCharacter;
-import cl.service.poc.properties.PropertiesConfig;
+import cl.service.poc.infra.configuration.PropertiesConfig;
+import cl.service.poc.infra.secundary.repository.CharacterReactiveRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -15,7 +17,7 @@ import reactor.core.publisher.Mono;
 @Slf4j
 @Component
 @AllArgsConstructor
-public class RickAndMortyDAOImpl implements RickAndMortyDAO {
+public class RickAndMortyPersistence implements RickAndMortyPort {
 
     private CharacterReactiveRepository characterReactiveRepository;
     private WebClient webClient;

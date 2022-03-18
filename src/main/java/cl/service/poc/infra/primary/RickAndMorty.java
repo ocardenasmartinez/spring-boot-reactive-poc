@@ -1,22 +1,25 @@
-package cl.service.poc.infra.primary.controllers;
+package cl.service.poc.infra.primary;
 
 import cl.service.poc.core.RickAndMortyUseCase;
 import cl.service.poc.core.domain.Character;
+import cl.service.poc.core.domain.SaveCharacter;
+import graphql.kickstart.tools.GraphQLQueryResolver;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
 @RestController
 @RequiredArgsConstructor
-public class RickAndMortyController {
+public class RickAndMorty implements GraphQLQueryResolver {
 
     private final RickAndMortyUseCase rickAndMortyUseCase;
 
-    @GetMapping("/getcharacter")
-    public Mono<Character> getCharacterById(@RequestParam("id") Integer id) {
+    public Mono<Character> getCharacterById(Integer id) {
         return rickAndMortyUseCase.getCharacterById(id);
+    }
+
+    public Mono<SaveCharacter> saveCharacterById(Integer id) {
+        return rickAndMortyUseCase.saveCharacterById(id);
     }
 
 }

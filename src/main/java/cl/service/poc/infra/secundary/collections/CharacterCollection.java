@@ -1,4 +1,4 @@
-package cl.service.poc.infra.secundary.dao.collections;
+package cl.service.poc.infra.secundary.collections;
 
 import lombok.Builder;
 import lombok.Data;

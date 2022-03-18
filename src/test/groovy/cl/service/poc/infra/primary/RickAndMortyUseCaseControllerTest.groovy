@@ -1,4 +1,4 @@
-package cl.service.poc.infra.primary.controllers
+package cl.service.poc.infra.primary
 
 
 import cl.service.poc.core.RickAndMortyUseCase
@@ -8,7 +8,7 @@ class RickAndMortyUseCaseControllerTest extends Specification {
 
     RickAndMortyUseCase rickAndMorty = Mock()
 
-    RickAndMortyController rickAndMortyController = new RickAndMortyController(rickAndMorty)
+    RickAndMortyRest rickAndMortyController = new RickAndMortyRest(rickAndMorty)
 
     def"RickAndMortyController successful"() {
         given:
