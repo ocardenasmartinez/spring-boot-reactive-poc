@@ -46,9 +46,9 @@ public class RickAndMortyDAOImpl implements RickAndMortyDAO{
             characterCollection.status(rickAndMortyDTO.getStatus());
             characterCollection.species(rickAndMortyDTO.getSpecies());
             return characterReactiveRepository.save(characterCollection.build());
-        }).map(characterCollectionMono -> characterCollectionMono.map(CharacterCollection::getId).map(x -> {
-            log.info(x);
-            return SaveCharacterDTO.builder().id(x).build();
+        }).map(characterCollectionMono -> characterCollectionMono.map(CharacterCollection::getId).map(idCollection -> {
+            log.info(idCollection);
+            return SaveCharacterDTO.builder().id(idCollection).build();
         })).flatMap(Mono::from);
     }
 
