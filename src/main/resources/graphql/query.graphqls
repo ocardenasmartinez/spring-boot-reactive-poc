@@ -1,5 +1,6 @@
 type Query {
     getCharacterById(id: Int): CharacterDTO
+    saveCharacterById(id: Int): SaveCharacterDTO
 }
 
 type CharacterDTO {
@@ -17,4 +18,8 @@ type OriginDTO {
     url: String
     dimension: String
     residents: [String]
+}
+
+type SaveCharacterDTO {
+    id: String
 }
