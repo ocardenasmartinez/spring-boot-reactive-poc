@@ -51,6 +51,7 @@ public class RickAndMortyPersistence implements RickAndMortyPort {
         }).map(characterCollectionMono -> characterCollectionMono
                 .map(characterCollection -> {
                     var saveCharacter = SaveCharacter.builder();
+                    saveCharacter.id(characterCollection.getId());
                     saveCharacter.idCharacter(characterCollection.getIdCharacter());
                     saveCharacter.episodeCount(characterCollection.getEpisodeCount());
                     saveCharacter.name(characterCollection.getName());

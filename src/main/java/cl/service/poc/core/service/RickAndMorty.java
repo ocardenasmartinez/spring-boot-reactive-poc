@@ -6,6 +6,7 @@ import cl.service.poc.core.domain.Character;
 import cl.service.poc.core.domain.Origin;
 import cl.service.poc.core.domain.SaveCharacter;
 import lombok.RequiredArgsConstructor;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.ArrayList;
@@ -51,6 +52,11 @@ public class RickAndMorty implements RickAndMortyUseCase {
     @Override
     public Mono<SaveCharacter> saveCharacterById(Integer id) {
         return rickAndMortyDAO.saveCharacterById(id);
+    }
+
+    @Override
+    public Flux<SaveCharacter> getAllCharacters() {
+        return rickAndMortyDAO.getAllCharacter();
     }
 
 }

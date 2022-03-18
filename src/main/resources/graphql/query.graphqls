@@ -1,25 +1,32 @@
 type Query {
-    getCharacterById(id: Int): CharacterDTO
-    saveCharacterById(id: Int): SaveCharacterDTO
+    getCharacterById(id: Int): Character
+    saveCharacterById(id: Int): SaveCharacter
+    getAllCharacters: [SaveCharacter]
 }
 
-type CharacterDTO {
+type Character {
     id: Int
     name: String
     status: String
     species: String
     type: String
     episodeCount: Int
-    origin: OriginDTO
+    origin: Origin
 }
 
-type OriginDTO {
+type Origin {
     name: String
     url: String
     dimension: String
     residents: [String]
 }
 
-type SaveCharacterDTO {
+type SaveCharacter {
     id: String
+    idCharacter: Int
+    name: String
+    status: String
+    species: String
+    type: String
+    episodeCount: Int
 }
