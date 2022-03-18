@@ -1,9 +1,10 @@
-package cl.service.poc.business;
+package cl.service.poc.core.service;
 
-import cl.service.poc.dao.RickAndMortyDAO;
-import cl.service.poc.dto.CharacterDTO;
-import cl.service.poc.dto.OriginDTO;
-import cl.service.poc.dto.SaveCharacterDTO;
+import cl.service.poc.core.RickAndMortyUseCase;
+import cl.service.poc.infra.secundary.dao.RickAndMortyDAO;
+import cl.service.poc.core.domain.Character;
+import cl.service.poc.core.domain.Origin;
+import cl.service.poc.core.domain.SaveCharacter;
 import lombok.RequiredArgsConstructor;
 import reactor.core.publisher.Mono;
 
@@ -12,12 +13,12 @@ import java.util.ArrayList;
 import static java.util.Optional.ofNullable;
 
 @RequiredArgsConstructor
-public class RickAndMortyImpl implements RickAndMorty {
+public class RickAndMorty implements RickAndMortyUseCase {
 
     private final RickAndMortyDAO rickAndMortyDAO;
 
     @Override
-    public Mono<CharacterDTO> getCharacterById(Integer id) {
+    public Mono<Character> getCharacterById(Integer id) {
         return rickAndMortyDAO.getRickAndMortyDTO(id)
                 .map(rickAndMortyDTO -> {
                     ofNullable(rickAndMortyDTO.getOrigin())
@@ -28,8 +29,8 @@ public class RickAndMortyImpl implements RickAndMorty {
                 })
                 .map(rickAndMortyDTO -> rickAndMortyDAO.getRickAndMortyLocationDTO(rickAndMortyDTO.getOrigin().getUrl())
                         .map(rickAndMortyLocationDTO -> {
-                            var originDTO = OriginDTO.builder();
-                            var characterDTO = CharacterDTO.builder();
+                            var originDTO = Origin.builder();
+                            var characterDTO = Character.builder();
                             characterDTO.id(rickAndMortyDTO.getId());
                             var episodes = ofNullable(rickAndMortyDTO.getEpisode())
                                     .orElseGet(ArrayList::new);
@@ -48,7 +49,7 @@ public class RickAndMortyImpl implements RickAndMorty {
     }
 
     @Override
-    public Mono<SaveCharacterDTO> saveCharacterById(Integer id) {
+    public Mono<SaveCharacter> saveCharacterById(Integer id) {
         return rickAndMortyDAO.saveCharacterById(id);
     }
 

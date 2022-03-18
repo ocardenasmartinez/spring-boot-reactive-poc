@@ -1,6 +1,6 @@
-package cl.service.poc.dao;
+package cl.service.poc.infra.secundary.dao;
 
-import cl.service.poc.collections.CharacterCollection;
+import cl.service.poc.infra.secundary.dao.collections.CharacterCollection;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import org.springframework.stereotype.Repository;
 

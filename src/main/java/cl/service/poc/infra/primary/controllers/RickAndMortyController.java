@@ -1,7 +1,7 @@
-package cl.service.poc.controllers;
+package cl.service.poc.infra.primary.controllers;
 
-import cl.service.poc.business.RickAndMorty;
-import cl.service.poc.dto.CharacterDTO;
+import cl.service.poc.core.RickAndMortyUseCase;
+import cl.service.poc.core.domain.Character;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,11 +12,11 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 public class RickAndMortyController {
 
-    private final RickAndMorty rickAndMorty;
+    private final RickAndMortyUseCase rickAndMortyUseCase;
 
     @GetMapping("/getcharacter")
-    public Mono<CharacterDTO> getCharacterById(@RequestParam("id") Integer id) {
-        return rickAndMorty.getCharacterById(id);
+    public Mono<Character> getCharacterById(@RequestParam("id") Integer id) {
+        return rickAndMortyUseCase.getCharacterById(id);
     }
 
 }

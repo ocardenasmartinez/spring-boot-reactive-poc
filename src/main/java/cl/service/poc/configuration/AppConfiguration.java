@@ -1,8 +1,8 @@
 package cl.service.poc.configuration;
 
-import cl.service.poc.business.RickAndMorty;
-import cl.service.poc.business.RickAndMortyImpl;
-import cl.service.poc.dao.RickAndMortyDAO;
+import cl.service.poc.core.RickAndMortyUseCase;
+import cl.service.poc.core.service.RickAndMorty;
+import cl.service.poc.infra.secundary.dao.RickAndMortyDAO;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -16,8 +16,8 @@ public class AppConfiguration {
     }
 
     @Bean
-    public RickAndMorty rickAndMorty(RickAndMortyDAO rickAndMortyDAO) {
-        return new RickAndMortyImpl(rickAndMortyDAO);
+    public RickAndMortyUseCase rickAndMorty(RickAndMortyDAO rickAndMortyDAO) {
+        return new RickAndMorty(rickAndMortyDAO);
     }
 
 }

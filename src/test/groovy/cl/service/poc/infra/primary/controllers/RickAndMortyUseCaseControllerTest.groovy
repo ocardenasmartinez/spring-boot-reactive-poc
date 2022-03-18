@@ -1,19 +1,18 @@
-package cl.service.poc.controllers
+package cl.service.poc.infra.primary.controllers
 
 
-import cl.service.poc.business.RickAndMorty
-import cl.service.poc.dto.CharacterDTO
+import cl.service.poc.core.RickAndMortyUseCase
 import spock.lang.Specification
 
-class RickAndMortyControllerTest extends Specification {
+class RickAndMortyUseCaseControllerTest extends Specification {
 
-    RickAndMorty rickAndMorty = Mock()
+    RickAndMortyUseCase rickAndMorty = Mock()
 
     RickAndMortyController rickAndMortyController = new RickAndMortyController(rickAndMorty)
 
     def"RickAndMortyController successful"() {
         given:
-        def characterDTO = CharacterDTO.builder()
+        def characterDTO = Character.builder()
         characterDTO.id(1)
 
         when:

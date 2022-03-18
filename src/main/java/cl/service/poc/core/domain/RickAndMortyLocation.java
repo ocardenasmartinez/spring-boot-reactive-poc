@@ -1,4 +1,4 @@
-package cl.service.poc.dto;
+package cl.service.poc.core.domain;
 
 import lombok.Data;
 
@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 @Data
-public class RickAndMortyLocationDTO {
+public class RickAndMortyLocation {
 
     private String name;
     private String type;

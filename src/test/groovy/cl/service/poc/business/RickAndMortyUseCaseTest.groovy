@@ -1,38 +1,38 @@
 package cl.service.poc.business
 
+import cl.service.poc.core.RickAndMortyUseCase
+import cl.service.poc.core.service.RickAndMorty
 import cl.service.poc.dao.RickAndMortyDAO
-import cl.service.poc.dto.CharacterDTO
-import cl.service.poc.dto.OriginDTO
-import cl.service.poc.dto.RickAndMortyDTO
-import cl.service.poc.dto.RickAndMortyLocationDTO
-import cl.service.poc.dto.RickAndMortyOriginDTO
+import cl.service.poc.dto.Origin
+import cl.service.poc.dto.RickAndMortyLocation
+import cl.service.poc.dto.RickAndMortyOrigin
 import spock.lang.Specification
 
-class RickAndMortyTest extends Specification {
+class RickAndMortyUseCaseTest extends Specification {
 
     RickAndMortyDAO rickAndMortyDAO = Mock()
 
-    RickAndMorty rickAndMorty = new RickAndMortyImpl(rickAndMortyDAO)
+    RickAndMortyUseCase rickAndMorty = new RickAndMorty(rickAndMortyDAO)
 
      def"RickAndMorty successful"(){
          given:
-         def rickAndMortyLocationDTO = new RickAndMortyLocationDTO()
+         def rickAndMortyLocationDTO = new RickAndMortyLocation()
          rickAndMortyLocationDTO.setName("")
 
-         def rickAndMortyOriginDTO = new RickAndMortyOriginDTO()
+         def rickAndMortyOriginDTO = new RickAndMortyOrigin()
          rickAndMortyOriginDTO.setName("")
 
-         def rickAndMortyDTO = new RickAndMortyDTO()
+         def rickAndMortyDTO = new RickAndMortyUseCase()
          rickAndMortyDTO.setId(1)
          rickAndMortyDTO.setOrigin(rickAndMortyOriginDTO)
          rickAndMortyDTO.setLocation(rickAndMortyLocationDTO)
          rickAndMortyDTO.setEpisode(List.of(""))
 
          and:
-         def characterDTO = CharacterDTO.builder()
+         def characterDTO = Character.builder()
          characterDTO.id(1)
          characterDTO.episodeCount(1)
-         characterDTO.origin(OriginDTO.builder().build())
+         characterDTO.origin(Origin.builder().build())
 
          when:
          def response = rickAndMorty.getCharacterById(1)
