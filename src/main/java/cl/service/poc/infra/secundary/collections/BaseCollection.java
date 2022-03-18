@@ -12,7 +12,7 @@ public abstract class BaseCollection {
 
     @Id
     private String id;
-    private final Date modifiedAt = Date.from(LocalDateTime.now().toInstant(ZoneOffset.UTC));
+    //private final Date modifiedAt = Date.from(LocalDateTime.now().toInstant(ZoneOffset.UTC));
 
 }
 
